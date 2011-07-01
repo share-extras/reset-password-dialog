@@ -93,15 +93,15 @@
       Dom.get("success").value += window.location.hash;
       Dom.get(<#if lastUsername??>"password"<#else>"username"</#if>).focus();
       
-      var configDialog;
+      var resetPasswordDialog;
       
       // Forgot password link handler
       YAHOO.util.Event.addListener("link-forgotPass", "click", function(e) {
          var actionUrl = Alfresco.constants.PROXY_URI + "extras/modules/reset-user-password";
          YAHOO.util.Event.stopEvent(e);
-         if (!configDialog)
+         if (!resetPasswordDialog)
          {
-            configDialog = new Alfresco.module.SimpleDialog("resetPasswordDialog").setOptions(
+            resetPasswordDialog = new Alfresco.module.SimpleDialog("resetPasswordDialog").setOptions(
             {
                width: "30em",
                templateUrl: Alfresco.constants.URL_SERVICECONTEXT + "extras/modules/reset-password-dialog",
@@ -110,7 +110,9 @@
                {
                   fn: function VideoWidget_onConfigFeed_callback(response)
                   {
-                     Alfresco.util.PopupManager.displayMessage(Alfresco.util.message("message.passwordSent"));
+                     Alfresco.util.PopupManager.displayMessage({
+                        text: Alfresco.util.message("message.passwordSent")
+                     });
                   },
                   scope: this
                },
@@ -125,12 +127,12 @@
          }
          else
          {
-            configDialog.setOptions(
+            resetPasswordDialog.setOptions(
             {
                actionUrl: actionUrl
             });
          }
-         configDialog.show();
+         resetPasswordDialog.show();
       });
    });
    
