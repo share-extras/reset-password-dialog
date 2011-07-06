@@ -129,7 +129,7 @@ function main()
    
    user = search.findNode(users[0]);
 
-   if (!people.isAccountEnabled(user))
+   if (!people.isAccountEnabled(user.properties.userName))
    {
       status.setCode(status.STATUS_FORBIDDEN, msg.get("error.disabled"));
       status.redirect = true;
