@@ -97,7 +97,7 @@
       
       // Forgot password link handler
       YAHOO.util.Event.addListener("link-forgotPass", "click", function(e) {
-         var actionUrl = Alfresco.constants.PROXY_URI + "extras/modules/reset-user-password";
+         var actionUrl = "/alfresco/s/extras/modules/reset-user-password";
          YAHOO.util.Event.stopEvent(e);
          if (!resetPasswordDialog)
          {
