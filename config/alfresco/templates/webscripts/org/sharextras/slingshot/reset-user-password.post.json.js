@@ -146,29 +146,25 @@ function main()
       }
    }
    
-   var uresults = search.query({
-      language: "lucene",
-      store: "user://alfrescoUserStore",
-      query: "PATH:\"/\\{http\\://www.alfresco.org/model/system/1.0\\}system/\\{http\\://www.alfresco.org/model/system/1.0\\}people/\\{http\\://www.alfresco.org/model/user/1.0\\}user\" +@\\{http\\://www.alfresco.org/model/user/1.0\\}username:" + user.properties.userName
-   });
-   
-   // Check that the user is local (i.e. not an LDAP user)
-   if (uresults.length != 1)
+   // Reset the password
+   try
+   {
+      u = resetPassword(userToObject(user));
+   }
+   catch (e)
    {
       status.setCode(status.STATUS_BAD_REQUEST, msg.get("error.notLocal"));
       status.redirect = true;
       return;
    }
    
-   // Reset the password
-   u = resetPassword(userToObject(user));
-   
    // Send e-mail confirmation
    try
    {
       mailResetPasswordNotification(u);
    }
-   catch (e) {
+   catch (e)
+   {
       status.setCode(status.STATUS_INTERNAL_SERVER_ERROR, msg.get("error.mail"));
       status.redirect = true;
       return;
