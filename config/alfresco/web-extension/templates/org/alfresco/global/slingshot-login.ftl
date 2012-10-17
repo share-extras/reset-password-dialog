@@ -116,6 +116,22 @@
                   },
                   scope: this
                },
+               onFailure:
+               {
+                  fn: function VideoWidget_onConfigFeed_callback(response)
+                  {
+                     var errorText = (response.json && response.json.message) ? 
+                        response.json.message : Alfresco.util.message("message.unknownError"),
+                        errorTitle = (response.json && response.json.status && response.json.status.name) ? 
+                        response.json.status.name : Alfresco.util.message("message.unknownErrorTitle");
+                     
+                     Alfresco.util.PopupManager.displayPrompt({
+                        title: errorTitle,
+                        text: errorText
+                     });
+                  },
+                  scope: this
+               },
                doSetupFormsValidation:
                {
                   fn: function VideoWidget_doSetupForm_callback(form)
