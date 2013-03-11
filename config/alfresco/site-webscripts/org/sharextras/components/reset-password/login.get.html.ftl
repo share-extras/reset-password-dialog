@@ -8,5 +8,8 @@
 </@markup>
 
 <@markup id="custom-guest-password-link" target="buttons" action="after" scope="global">
-     <a id="link-forgotPass" href="#">${msg("link.forgotPass")}</a>
+    <@uniqueIdDiv>
+        <#assign el=args.htmlid?html>
+        <a id="${el}-link" href="#">${msg("link.forgotPass")}</a>
+    </@uniqueIdDiv>
 </@markup>

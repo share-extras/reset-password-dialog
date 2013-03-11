@@ -22,7 +22,7 @@ if (typeof Extras === undefined || !Extras) {
 
         onReady: function RPD_onReady() {
             // .. hook up or lost password link event handler code
-            YAHOO.util.Event.addListener("link-forgotPass", "click", function (e) {
+            YAHOO.util.Event.addListener(this.id + "-link", "click", function (e) {
                 var actionUrl = Alfresco.constants.PROXY_URI_RELATIVE.replace("/alfresco/", "/alfresco-noauth/") + "extras/modules/reset-user-password";
                 YAHOO.util.Event.stopEvent(e);
                 if (!this.resetPasswordDialog) {
