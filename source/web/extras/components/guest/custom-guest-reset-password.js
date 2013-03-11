@@ -8,11 +8,6 @@ if (typeof Extras === undefined || !Extras) {
     var Extras = {};
 }
 
-if (typeof Extras.CustomLoginDialog === "undefined" || !Extras.CustomLoginDialog) {
-    Extras.CustomLoginDialog = {};
-}
-
-
 (function () {
     // Define constructor...
     Extras.CustomLoginDialog = function CustomLoginDialog_constructor(htmlId) {
