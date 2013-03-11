@@ -34,7 +34,7 @@ if (typeof Extras === undefined || !Extras)
                 {
                     this.resetPasswordDialog = new Alfresco.module.SimpleDialog("resetPasswordDialog").setOptions(
                     {
-                        width: "30em",
+                        width: "35em",
                         templateUrl: Alfresco.constants.URL_SERVICECONTEXT + "extras/modules/reset-password-dialog",
                         actionUrl: actionUrl,
                         onSuccess:

@@ -1,6 +1,7 @@
 <div id="${args.htmlid}-resetPasswordDialog" class="reset-password-dialog">
    <div class="hd">${msg("label.header")}</div>
    <div class="bd">
+      <p>${msg("message.reset")}</p>
       <form id="${args.htmlid}-form" action="" method="POST">
          <div class="yui-gd">
             <div class="yui-u first"><label for="${args.htmlid}-email">${msg("label.email")}:</label></div>
