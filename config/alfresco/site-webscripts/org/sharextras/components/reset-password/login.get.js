@@ -4,6 +4,6 @@
 **/
 model.widgets.push({
    id: "ResetPasswordDialog",
-   name: "Extras.CustomLoginDialog",
+   name: "Extras.ResetPasswordDialog",
    options: {}
 });
