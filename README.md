@@ -26,9 +26,11 @@ The add-on will work with Alfresco version 3.4, 4.0 and greater.
 Installation
 ------------
 
-The add-on is packaged as a single JAR file for easy installation into Alfresco Share.
+The add-on is packaged as a single JAR file for easy installation into Alfresco.
 
-To install the add-on, simply drop the `reset-password-dialog-<version>.jar` file into the `tomcat/shared/lib` folder within your Alfresco installation, and restart the application server. You might need to create this folder if it does not already exist.
+To install the add-on, simply drop the `reset-password-dialog-<version>.jar` file into the `tomcat/shared/lib` folder within your Alfresco installation, and restart the application server. You might need to create this folder if it does not already exist. Note: If you are running the repository and Share in different containers you will need to install the JAR file in both.
+
+In Alresco 4.2.b and previous versions, the additional function will appear automatically on the login page. In 4.2.c onwards, you must deploy the _Login page Reset Password Dialog_ module in Share's Module Deployment console in order to enable the capabilities.
 
 Building from Source
 --------------------
@@ -51,3 +53,8 @@ Usage
 -----
 
 Click the _Forgotten Password?_ link on the login page. Enter your e-mail address and click *OK* to confirm.
+
+Credits
+-------
+
+Thanks to Erik Billerby for the changes to enable the add-on to work with Alfresco 4.2.c onwards.
