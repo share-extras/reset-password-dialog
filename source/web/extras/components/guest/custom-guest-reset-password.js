@@ -1,5 +1,5 @@
 /**
- * CustomLogin extension with password reset link.
+ * Password reset link behaviours
  *
  * @namespace Extras
  * @class CustomLoginDialog
@@ -15,20 +15,17 @@ if (typeof Extras.CustomLoginDialog === "undefined" || !Extras.CustomLoginDialog
 
 (function () {
     // Define constructor...
-    Extras.CustomLoginDialog = function LoginWidget_constructor(htmlId) {
-        Extras.CustomLoginDialog.superclass.constructor.call(this, htmlId);
+    Extras.CustomLoginDialog = function CustomLoginDialog_constructor(htmlId) {
+        Extras.CustomLoginDialog.superclass.constructor.call(this, "Alfresco.component.CustomLoginDialog", htmlId, ["button", "container"]);
         return this;
     };
 
-    // Extend default Guest component...
-    YAHOO.extend(Extras.CustomLoginDialog, Alfresco.component.Login, {
+    // Extend default Base component...
+    YAHOO.extend(Extras.CustomLoginDialog, Alfresco.component.Base, {
 
         resetPasswordDialog: null,
 
         onReady: function Custom_onReady() {
-            // Call super class method...
-            Extras.CustomLoginDialog.superclass.onReady.call(this);
-
             // .. hook up or lost password link event handler code
             YAHOO.util.Event.addListener("link-forgotPass", "click", function (e) {
                 var actionUrl = Alfresco.constants.PROXY_URI_RELATIVE.replace("/alfresco/", "/alfresco-noauth/") + "extras/modules/reset-user-password";
